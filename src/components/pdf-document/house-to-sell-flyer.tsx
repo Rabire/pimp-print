@@ -62,10 +62,10 @@ const HouseToSellFlyer = () => {
 
           <View className="flex-row gap-2">
             {/* TODO: add une fleche */}
-            <View className="bg-gray-300 h-20 w-20"></View>
-            <Text className="max-w-28 text-sm">
-              Découvrez d'autres biens qui pourraient aussi vous plaire ici !
+            <Text className="max-w-20 text-sm">
+              D'autres biens qui pourraient vous plaire ici !
             </Text>
+            <View className="bg-gray-300 h-20 w-20"></View>
           </View>
         </View>
       </PrintPage>
