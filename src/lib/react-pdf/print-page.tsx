@@ -1,5 +1,6 @@
 import { Page, View } from "@react-pdf/renderer";
 import { PropsWithChildren } from "react";
+import { tw } from "../utils";
 
 const mmToPt = (mm: number) => Math.abs(mm * 2.8346456693);
 
@@ -18,6 +19,7 @@ type Props = PropsWithChildren & {
   size: "A4" | "A5";
   orientation?: "portrait" | "landscape";
   showGuides?: boolean;
+  className?: string;
 };
 
 export const PrintPage = ({
@@ -25,6 +27,7 @@ export const PrintPage = ({
   orientation = "portrait",
   showGuides,
   children,
+  className,
 }: Props) => {
   const { height, width } = DEFAULT_GUIDES_DIMENSIONS[size];
 
@@ -37,7 +40,7 @@ export const PrintPage = ({
       : [pageHeight, pageWidth];
 
   return (
-    <Page size={sizes} orientation={orientation}>
+    <Page size={sizes} style={tw(className)}>
       {showGuides && (
         <View
           style={{
@@ -49,6 +52,7 @@ export const PrintPage = ({
             left: 0,
             right: 0,
             bottom: 0,
+            zIndex: 1000,
           }}
         >
           <View
