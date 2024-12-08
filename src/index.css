@@ -51,6 +51,10 @@
     font-family: Inter;
   }
 
+  #root {
+    @apply h-screen;
+  }
+
   button {
     @apply transition-colors;
   }

@@ -1,9 +1,12 @@
-import { Button } from "@/components/ui/button";
+import { PDFViewer } from "@react-pdf/renderer";
+import HouseToSellFlyer from "./components/pdf-document/house-to-sell-flyer";
 
 function App() {
   return (
     <>
-      <Button>Click me</Button>
+      <PDFViewer className="h-full w-full">
+        <HouseToSellFlyer />
+      </PDFViewer>
     </>
   );
 }
