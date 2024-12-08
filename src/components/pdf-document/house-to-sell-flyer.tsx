@@ -2,7 +2,6 @@ import Document from "@/lib/react-pdf/document";
 import LucidToReactPdf from "@/lib/react-pdf/lucid-to-react-pdf";
 import { PrintPage } from "@/lib/react-pdf/print-page";
 import { Text, View } from "@/lib/react-pdf/renderer";
-import { Image } from "@react-pdf/renderer";
 
 const HouseToSellFlyer = () => {
   return (
@@ -13,19 +12,7 @@ const HouseToSellFlyer = () => {
           <Text className="font-extrabold text-4xl uppercase">
             Maison de vos rêves ?
           </Text>
-
-          <LucidToReactPdf />
         </View>
-
-        <Image
-          src="data:image/svg+xml;base64,CjxzdmcKICBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1hcmNoaXZlLXJlc3RvcmUiCiAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iY3VycmVudENvbG9yIgogIHN0cm9rZS13aWR0aD0iMiIKICBzdHJva2UtbGluZWNhcD0icm91bmQiCiAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKPgogIDxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiB4PSIyIiB5PSIzIiByeD0iMSIgLz4KICA8cGF0aCBkPSJNNCA4djExYTIgMiAwIDAgMCAyIDJoMiIgLz4KICA8cGF0aCBkPSJNMjAgOHYxMWEyIDIgMCAwIDEtMiAyaC0yIiAvPgogIDxwYXRoIGQ9Im05IDE1IDMtMyAzIDMiIC8+CiAgPHBhdGggZD0iTTEyIDEydjkiIC8+Cjwvc3ZnPgo="
-          style={{ backgroundColor: "pink", height: 120, width: 120 }}
-        />
-
-        {/* <Image
-          style={tw("h-[120px] object-cover rounded")}
-          src="https://media.discordapp.net/attachments/588440950465101835/1313828059132071957/exterieur.jpg?ex=6756d33b&is=675581bb&hm=aac6ff6d196ed6198981731e706acff7a5b40523a14f15774567e756c044790e"
-        /> */}
 
         <View className="px-10 py-6 flex-row items-center">
           <View className="w-3/4 gap-2">
@@ -47,9 +34,9 @@ const HouseToSellFlyer = () => {
           </View>
 
           <View className="gap-2 flex-col w-1/4 ml-4">
-            <Li title="Pièces" value="5" />
-            <Li title="Salles de bain" value="2" />
-            <Li title="Surface habitable" value="523 m²" />
+            <Li icon="Bed" title="Pièces" value="5" />
+            <Li icon="ShowerHead" title="Salles de bain" value="2" />
+            <Li icon="Scaling" title="Surface habitable" value="523 m²" />
           </View>
         </View>
 
@@ -64,13 +51,17 @@ const HouseToSellFlyer = () => {
           {/* Footer */}
           <View className="flex-row gap-4">
             <View className="gap-2 flex-col">
-              <Li title="Inclus" value="Sauna + Hammam + Piscine" />
-              <Li title="Vue" value="À 180°" />
+              <Li
+                icon="WavesLadder"
+                title="Inclus"
+                value="Sauna + Hammam + Piscine"
+              />
+              <Li icon="Mountain" title="Vue" value="À 180°" />
             </View>
 
             <View className="gap-2 flex-col">
-              <Li title="Construit en" value="2011" />
-              <Li title="Prix de vente" value="450 000 €" />
+              <Li icon="Hammer" title="Construit en" value="2011" />
+              <Li icon="PiggyBank" title="Prix de vente" value="450 000 €" />
             </View>
           </View>
 
@@ -90,15 +81,16 @@ const HouseToSellFlyer = () => {
 export default HouseToSellFlyer;
 
 type LiProps = {
-  // icon
+  icon: string;
   title: string;
   value: string;
 };
 
-const Li = ({ title, value }: LiProps) => {
+const Li = ({ icon, title, value }: LiProps) => {
   return (
     <View className="flex-row gap-2 items-center text-sm ">
-      <View className="bg-gray-200 h-8 w-8">{/* icon */}</View>
+      {/* <View className="bg-gray-200 h-8 w-8">icon</View> */}
+      <LucidToReactPdf size={20} icon={icon} />
       <View>
         <Text className="mb-1 opacity-60">{title}</Text>
         <Text className="font-semibold">{value}</Text>
