@@ -1,6 +1,8 @@
 import Document from "@/lib/react-pdf/document";
+import LucidToReactPdf from "@/lib/react-pdf/lucid-to-react-pdf";
 import { PrintPage } from "@/lib/react-pdf/print-page";
 import { Text, View } from "@/lib/react-pdf/renderer";
+import { Image } from "@react-pdf/renderer";
 
 const HouseToSellFlyer = () => {
   return (
@@ -11,7 +13,19 @@ const HouseToSellFlyer = () => {
           <Text className="font-extrabold text-4xl uppercase">
             Maison de vos rêves ?
           </Text>
+
+          <LucidToReactPdf />
         </View>
+
+        <Image
+          src="https://unpkg.com/lucide-static@latest/icons/house.svg"
+          style={{ backgroundColor: "pink", height: 120, width: 120 }}
+        />
+
+        {/* <Image
+          style={tw("h-[120px] object-cover rounded")}
+          src="https://media.discordapp.net/attachments/588440950465101835/1313828059132071957/exterieur.jpg?ex=6756d33b&is=675581bb&hm=aac6ff6d196ed6198981731e706acff7a5b40523a14f15774567e756c044790e"
+        /> */}
 
         <View className="px-10 py-6 flex-row items-center">
           <View className="w-3/4 gap-2">
