@@ -18,7 +18,7 @@ const HouseToSellFlyer = () => {
         </View>
 
         <Image
-          src="https://unpkg.com/lucide-static@latest/icons/house.svg"
+          src="data:image/svg+xml;base64,CjxzdmcKICBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1hcmNoaXZlLXJlc3RvcmUiCiAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iY3VycmVudENvbG9yIgogIHN0cm9rZS13aWR0aD0iMiIKICBzdHJva2UtbGluZWNhcD0icm91bmQiCiAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKPgogIDxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiB4PSIyIiB5PSIzIiByeD0iMSIgLz4KICA8cGF0aCBkPSJNNCA4djExYTIgMiAwIDAgMCAyIDJoMiIgLz4KICA8cGF0aCBkPSJNMjAgOHYxMWEyIDIgMCAwIDEtMiAyaC0yIiAvPgogIDxwYXRoIGQ9Im05IDE1IDMtMyAzIDMiIC8+CiAgPHBhdGggZD0iTTEyIDEydjkiIC8+Cjwvc3ZnPgo="
           style={{ backgroundColor: "pink", height: 120, width: 120 }}
         />
 
