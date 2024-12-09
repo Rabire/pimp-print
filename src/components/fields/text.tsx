@@ -21,7 +21,14 @@ const TextField = ({ name, label, placeholder, description }: FieldProps) => {
         <FormItem>
           <FormLabel>{label}</FormLabel>
           <FormControl>
-            <Input placeholder={placeholder || "Non renseigné"} {...field} />
+            <Input
+              placeholder={placeholder || "Non renseigné"}
+              {...field}
+              onChange={({ target: { value } }) =>
+                form.setValue(name, value === "" ? null : value)
+              }
+              value={field.value || ""}
+            />
           </FormControl>
 
           {description && <FormDescription>{description}</FormDescription>}
