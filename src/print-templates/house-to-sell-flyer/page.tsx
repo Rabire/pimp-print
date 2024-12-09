@@ -82,14 +82,14 @@ const Page = ({ values }: Props) => {
 
           <View className="gap-2 flex-col">
             <Li
-              icon={values.li5Icon}
-              title={values.li5Title}
-              value={values.li5Value}
+              icon={values.li6Icon}
+              title={values.li6Title}
+              value={values.li6Value}
             />
             <Li
-              icon={values.li5Icon}
-              title={values.li5Title}
-              value={values.li5Value}
+              icon={values.li7Icon}
+              title={values.li7Title}
+              value={values.li7Value}
             />
           </View>
         </View>
