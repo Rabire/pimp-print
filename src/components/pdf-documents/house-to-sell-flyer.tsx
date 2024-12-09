@@ -1,8 +1,8 @@
-import Document from "@/lib/react-pdf/document";
-import PdfIcon from "@/lib/react-pdf/lucid-to-react-pdf";
-import { PrintPage } from "@/lib/react-pdf/print-page";
-import { Image, Text, View } from "@/lib/react-pdf/renderer";
-import { COLOR } from "@/lib/utils";
+import Document from "@/utils/react-pdf/document";
+import PdfIcon from "@/utils/react-pdf/lucid-to-react-pdf";
+import { PrintPage } from "@/utils/react-pdf/print-page";
+import { Image, Text, View } from "@/utils/react-pdf/renderer";
+import { COLOR } from "@/utils/styles";
 
 const HouseToSellFlyer = () => {
   return (

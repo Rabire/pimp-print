@@ -1,6 +1,6 @@
 import { Font, Document as ReactPDFDocument } from "@react-pdf/renderer";
 import { PropsWithChildren } from "react";
-import { tw } from "../utils";
+import { tw } from "../styles";
 
 type Props = PropsWithChildren & {
   title: string;

@@ -3,7 +3,7 @@ import * as lucideIcons from "lucide-react"; // Importer toutes les icônes de l
 import { LucideProps } from "lucide-react";
 import { useEffect, useState } from "react";
 import ReactDOMServer from "react-dom/server";
-import { tw } from "../utils";
+import { tw } from "../styles";
 
 type Props = LucideProps & {
   size: number;

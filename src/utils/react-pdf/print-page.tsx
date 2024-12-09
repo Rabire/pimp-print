@@ -1,6 +1,6 @@
 import { Page, View } from "@react-pdf/renderer";
 import { PropsWithChildren } from "react";
-import { tw } from "../utils";
+import { tw } from "../styles";
 
 const mmToPt = (mm: number) => Math.abs(mm * 2.8346456693);
 

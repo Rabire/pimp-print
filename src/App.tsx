@@ -1,5 +1,5 @@
 import { PDFViewer } from "@react-pdf/renderer";
-import HouseToSellFlyer from "./components/pdf-document/house-to-sell-flyer";
+import HouseToSellFlyer from "./components/pdf-documents/house-to-sell-flyer";
 import PersonalizationPanel from "./components/personalization-panel";
 
 function App() {
