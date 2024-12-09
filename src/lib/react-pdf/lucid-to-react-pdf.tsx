@@ -1,19 +1,21 @@
 import { Image as PdfImage } from "@react-pdf/renderer";
-import * as lucideIcons from "lucide-static"; // Importer toutes les icônes de lucide
+import * as lucideIcons from "lucide-react"; // Importer toutes les icônes de lucide
+import { LucideProps } from "lucide-react";
 import { useEffect, useState } from "react";
+import ReactDOMServer from "react-dom/server";
 import { tw } from "../utils";
 
-type Props = {
+type Props = LucideProps & {
   size: number;
   icon: string;
   className?: string;
 };
 
-const LucidToReactPdf = ({ size, icon, className }: Props) => {
+const LucidToReactPdf = ({ size, icon, className, ...props }: Props) => {
   const IconComponent = lucideIcons[icon as keyof typeof lucideIcons];
-  // const IconComponent = lucideIcons.BrickWall;
 
-  const { type: svgString } = <IconComponent />;
+  const svgString = ReactDOMServer.renderToString(<IconComponent {...props} />);
+
   const [pngUrl, setPngUrl] = useState<string | null>(null);
 
   useEffect(() => {
