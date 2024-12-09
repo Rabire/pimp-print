@@ -23,13 +23,25 @@ export const Text = ({ className, children, ...props }: PropsText) => (
   </PDFText>
 );
 
-type PropsImage = ImageProps & {
+type PropsImage = Omit<ImageProps, "source"> & {
+  src?: string | null;
   className?: string;
 };
 
-export const Image = ({ className, ...props }: PropsImage) => (
-  <PDFImage
-    style={{ ...tw("object-cover", className), ...props.style }}
-    {...props}
-  />
-);
+export const Image = ({ src, className, ...props }: PropsImage) => {
+  if (!src)
+    return (
+      <View
+        style={{ ...tw("object-cover", className), ...props.style }}
+        {...props}
+      />
+    );
+
+  return (
+    <PDFImage
+      style={{ ...tw("object-cover", className), ...props.style }}
+      {...props}
+      src={src}
+    />
+  );
+};

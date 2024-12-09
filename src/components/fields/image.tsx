@@ -16,7 +16,10 @@ const ImageField = ({ name, label, placeholder, description }: FieldProps) => {
 
   const onDrop = (files: File[]) => {
     const file = files[0];
-    console.log({ file });
+
+    const imageUrl = URL.createObjectURL(file);
+
+    form.setValue(name, imageUrl);
   };
 
   const { getRootProps, getInputProps } = useDropzone({

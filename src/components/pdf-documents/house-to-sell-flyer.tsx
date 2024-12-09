@@ -4,7 +4,14 @@ import { PrintPage } from "@/utils/react-pdf/print-page";
 import { Image, Text, View } from "@/utils/react-pdf/renderer";
 import { COLOR } from "@/utils/styles";
 
-const HouseToSellFlyer = () => {
+type Props = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  values: any; // TODO: Define type using zod
+};
+
+const HouseToSellFlyer = ({ values }: Props) => {
+  const { coverPicture } = values;
+
   return (
     <Document title="Flyer maison à vendre">
       <PrintPage
@@ -13,8 +20,13 @@ const HouseToSellFlyer = () => {
         showCutLines={true}
         showSafeArea={false}
       >
-        <View className="bg-blue-300 h-1/3 relative">
-          <Image src="https://media.discordapp.net/attachments/588440950465101835/1315469253000040558/villa-de-luxe-saint-didier-au-mont-dor-67508c64638c43161f6e132d-1733481327-723946701.jpg?ex=675785b6&is=67563436&hm=3ce59e42afb1e6aef6e32ed0f90e655c69fc20e1a338f0a95c2adfcdd3183c36" />
+        <View className="bg-primary h-1/3 relative">
+          {coverPicture && (
+            <Image
+              src={coverPicture}
+              // src="https://media.discordapp.net/attachments/588440950465101835/1315469253000040558/villa-de-luxe-saint-didier-au-mont-dor-67508c64638c43161f6e132d-1733481327-723946701.jpg?ex=675785b6&is=67563436&hm=3ce59e42afb1e6aef6e32ed0f90e655c69fc20e1a338f0a95c2adfcdd3183c36"
+            />
+          )}
 
           <View className="absolute left-10 bottom-0 text-light">
             <Text className="text-lg">À la recherche de la</Text>
@@ -54,15 +66,15 @@ const HouseToSellFlyer = () => {
           {/* Pictures row */}
           <Image
             src="https://media.discordapp.net/attachments/588440950465101835/1315469253326934047/villa-de-luxe-saint-didier-au-mont-dor-67508c64638c43161f6e132d-1733481328-2075360037.jpg?ex=675785b6&is=67563436&hm=fd254645e248161cbfd285d39963b18ef31ea017cff3393016e01853ad5c699f"
-            className="bg-pink-300 w-full h-[130px]"
+            className="bg-primary w-full h-[130px]"
           />
           <Image
             src="https://media.discordapp.net/attachments/588440950465101835/1315469252630810704/villa-de-luxe-saint-didier-au-mont-dor-67508c64638c43161f6e132d-1733481330-1516998414.jpg?ex=675785b6&is=67563436&hm=e43d266479f71f521dc46ad059c683dde181aac7e2d31bb514e95c5c3b010090"
-            className="bg-pink-300 w-full h-[130px]"
+            className="bg-primary w-full h-[130px]"
           />
           <Image
             src="https://media.discordapp.net/attachments/588440950465101835/1315469252073095218/villa-de-luxe-saint-didier-au-mont-dor-67508c64638c43161f6e132d-1733481331-394141347.jpg?ex=675785b5&is=67563435&hm=c423e1f4f9da2bdcee53efa9a798d295842ce389129d829778a0e333a1b86b45"
-            className="bg-pink-300 w-full h-[130px]"
+            className="bg-primary w-full h-[130px]"
           />
         </View>
 

@@ -1,8 +1,6 @@
 import { Field } from "@/utils/field";
-import { useForm } from "react-hook-form";
 import FormFieldsRenderer from "./form-fields-renderer";
 import { Button } from "./ui/button";
-import { Form } from "./ui/form";
 import { ScrollArea } from "./ui/scroll-area";
 
 const fields: Field[] = [
@@ -49,8 +47,6 @@ const fields: Field[] = [
 ];
 
 const PersonalizationPanel = () => {
-  const form = useForm();
-
   return (
     <ScrollArea>
       <aside className="p-6 pb-20 space-y-6 relative">
@@ -70,11 +66,9 @@ const PersonalizationPanel = () => {
           </p>
         </div>
 
-        <Form {...form}>
-          <form className="space-y-4">
-            <FormFieldsRenderer fields={fields} />
-          </form>
-        </Form>
+        <form className="space-y-4">
+          <FormFieldsRenderer fields={fields} />
+        </form>
 
         <div className="shadow-sm fixed bottom-0 w-full right-0 border-t py-4 px-6 -ml-6 bg-background gap-2 justify-end flex">
           {/* Footer */}
