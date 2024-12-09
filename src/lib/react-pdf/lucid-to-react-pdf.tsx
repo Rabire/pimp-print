@@ -12,7 +12,10 @@ type Props = LucideProps & {
 };
 
 const LucidToReactPdf = ({ size, icon, className, ...props }: Props) => {
-  const IconComponent = lucideIcons[icon as keyof typeof lucideIcons];
+  const IconComponent = lucideIcons[
+    icon as keyof typeof lucideIcons
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ] as React.ComponentType<any>;
 
   const svgString = ReactDOMServer.renderToString(<IconComponent {...props} />);
 
