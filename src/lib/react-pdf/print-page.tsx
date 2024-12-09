@@ -18,14 +18,16 @@ export const DEFAULT_PADDING = `${mmToPt(DEFAULT_BLEED + DEFAULT_SAFE)}pt`;
 type Props = PropsWithChildren & {
   size: "A4" | "A5";
   orientation?: "portrait" | "landscape";
-  showGuides?: boolean;
+  showCutLines?: boolean;
+  showSafeArea?: boolean;
   className?: string;
 };
 
 export const PrintPage = ({
   size,
   orientation = "portrait",
-  showGuides,
+  showCutLines,
+  showSafeArea,
   children,
   className,
 }: Props) => {
@@ -41,38 +43,36 @@ export const PrintPage = ({
 
   return (
     <Page size={sizes} style={tw(className)}>
-      {showGuides && (
+      <View
+        style={{
+          flex: 1,
+          padding: `${DEFAULT_BLEED}mm`,
+          opacity: 1,
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 100,
+        }}
+      >
         <View
           style={{
+            border: "1pt dashed red",
             flex: 1,
-            padding: `${DEFAULT_BLEED}mm`,
-            opacity: 0.5,
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            zIndex: 1000,
+            padding: `${DEFAULT_SAFE}mm`,
+            opacity: showCutLines ? 1 : 0,
           }}
         >
           <View
             style={{
-              border: "1pt solid red",
+              border: "1pt solid orange",
               flex: 1,
-              padding: `${DEFAULT_SAFE}mm`,
-              opacity: 0.5,
+              opacity: showSafeArea ? 1 : 0,
             }}
-          >
-            <View
-              style={{
-                border: "1pt solid orange",
-                flex: 1,
-                opacity: 0.5,
-              }}
-            ></View>
-          </View>
+          ></View>
         </View>
-      )}
+      </View>
 
       {children}
     </Page>

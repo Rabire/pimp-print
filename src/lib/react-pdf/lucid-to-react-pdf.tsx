@@ -11,7 +11,7 @@ type Props = LucideProps & {
   className?: string;
 };
 
-const LucidToReactPdf = ({ size, icon, className, ...props }: Props) => {
+const PdfIcon = ({ size, icon, className, ...props }: Props) => {
   const IconComponent = lucideIcons[
     icon as keyof typeof lucideIcons
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -73,4 +73,4 @@ const LucidToReactPdf = ({ size, icon, className, ...props }: Props) => {
   );
 };
 
-export default LucidToReactPdf;
+export default PdfIcon;

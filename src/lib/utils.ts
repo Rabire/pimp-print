@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const COLOR = {
+export const COLOR = {
   primary: "#6366F1",
   secondary: "#F43F5E",
   light: "#fff",

@@ -1,12 +1,18 @@
 import Document from "@/lib/react-pdf/document";
-import LucidToReactPdf from "@/lib/react-pdf/lucid-to-react-pdf";
+import PdfIcon from "@/lib/react-pdf/lucid-to-react-pdf";
 import { PrintPage } from "@/lib/react-pdf/print-page";
 import { Image, Text, View } from "@/lib/react-pdf/renderer";
+import { COLOR } from "@/lib/utils";
 
 const HouseToSellFlyer = () => {
   return (
     <Document title="Flyer maison à vendre">
-      <PrintPage size="A5" showGuides={true} className="justify-between">
+      <PrintPage
+        size="A5"
+        className="justify-between"
+        showCutLines={true}
+        showSafeArea={false}
+      >
         <View className="bg-blue-300 h-1/3 relative">
           <Image src="https://media.discordapp.net/attachments/588440950465101835/1315469253000040558/villa-de-luxe-saint-didier-au-mont-dor-67508c64638c43161f6e132d-1733481327-723946701.jpg?ex=675785b6&is=67563436&hm=3ce59e42afb1e6aef6e32ed0f90e655c69fc20e1a338f0a95c2adfcdd3183c36" />
 
@@ -79,10 +85,19 @@ const HouseToSellFlyer = () => {
           </View>
 
           <View className="flex-row gap-2">
-            {/* TODO: add une fleche */}
-            <Text className="max-w-20 text-sm text-right">
-              D'autres biens qui pourraient vous plaire ici !
-            </Text>
+            <View className="items-end">
+              <Text className="max-w-20 text-sm text-right">
+                D'autres biens qui pourraient vous plaire ici !
+              </Text>
+              <PdfIcon
+                size={14}
+                icon="CornerDownRight"
+                strokeWidth={1.2}
+                className="mt-0.5 -rotate-12"
+                style={{ color: COLOR.secondary }}
+              />
+            </View>
+
             <Image
               src="https://media.discordapp.net/attachments/588440950465101835/1315466009922240642/Untitled_1.png?ex=675782b0&is=67563130&hm=99a008d73fdd8b32cd270bdb6007f98cccae2977ce51adf4979d672e181578df"
               className="bg-gray-300 h-16 w-16"
@@ -106,7 +121,7 @@ const Li = ({ icon, title, value }: LiProps) => {
   return (
     <View className="flex-row gap-3 items-center text-sm ">
       {/* <View className="bg-gray-200 h-8 w-8">icon</View> */}
-      <LucidToReactPdf size={18} icon={icon} strokeWidth={1.2} />
+      <PdfIcon size={18} icon={icon} strokeWidth={1.2} />
       <View>
         <Text className="mb-1 opacity-60">{title}</Text>
         <Text className="font-semibold">{value}</Text>
