@@ -32,7 +32,7 @@ const FIELDS: Field[] = [
     label: "Paragraphe",
     type: "textarea",
     defaultValue:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. A, suscipit omnis atque eaque temporibus ex perferendis architecto sint reiciendis quam praesentium magni id eum eligendi quas vitae alias accusamus!",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. A, suscipit omnis atque eaque temporibus ex perferendis architecto sint reiciendis quam praesentium magni id eum eligendi quas vitae alias accusamus!\n\nLorem ipsum dolor, sit amet consectetur adipisicing elit. A, suscipit omnis atque eaque temporibus ex perferendis architecto sint reiciendis quam praesentium magni id eum eligendi quas vitae alias accusamus!",
   },
 
   {

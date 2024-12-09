@@ -54,7 +54,7 @@ const IconField = ({ name, label, placeholder }: FieldProps) => {
                 placeholder={placeholder || "Nom de l'icône non renseigné"}
                 {...field}
                 onChange={({ target: { value } }) => setInputValue(value)}
-                value={inputValue}
+                value={inputValue || formValue}
               />
               {Icon && <Icon strokeWidth={1.4} />}
             </div>

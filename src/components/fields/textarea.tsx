@@ -32,6 +32,7 @@ const TextareaField = ({
               onChange={({ target: { value } }) =>
                 form.setValue(name, value === "" ? null : value)
               }
+              className="h-48"
               value={field.value || ""}
             />
           </FormControl>

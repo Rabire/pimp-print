@@ -1,9 +1,8 @@
-import { generateDefaultValues, generateZodSchema } from "@/utils/field";
+import { generateDefaultValues } from "@/utils/field";
 import { z } from "zod";
-import Page from "./document";
 import FIELDS from "./fields";
-
-const schema = generateZodSchema(FIELDS);
+import Page from "./page";
+import schema from "./schema";
 
 const template = {
   name: "house-to-sell-flyer",
