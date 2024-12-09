@@ -22,6 +22,8 @@ const ImageField = ({ name, label, placeholder, description }: FieldProps) => {
     form.setValue(name, imageUrl);
   };
 
+  const currentValue = form.getValues(name);
+
   const { getRootProps, getInputProps } = useDropzone({
     loading: false,
     onDrop,
@@ -37,16 +39,31 @@ const ImageField = ({ name, label, placeholder, description }: FieldProps) => {
           <FormLabel>{label}</FormLabel>
           <FormControl>
             <button
-              className="w-full cursor-pointer text-muted-foreground flex flex-col items-center justify-center rounded-md border border-input border-dashed h-32"
+              className="relative group overflow-hidden w-full cursor-pointer text-muted-foreground flex flex-col items-center justify-center rounded-md border border-input border-dashed h-32"
               type="button"
               {...getRootProps()}
             >
               <input {...getInputProps()} />
-              <ImagePlusIcon />
-              <p className="mt-2">
-                {placeholder || "Cliquez ou glissez pour ajouter"}
-              </p>
-              <p className="text-xs">PNG, JPEG ou HEIC (max 5 Mo)</p>
+
+              {currentValue && (
+                <>
+                  <img
+                    src={currentValue}
+                    className="group-hover:opacity-50 transition-opacity"
+                  />
+                  <ImagePlusIcon className="absolute group-hover:opacity-100 opacity-0 transition-opacity" />
+                </>
+              )}
+
+              {!currentValue && (
+                <>
+                  <ImagePlusIcon />
+                  <p className="mt-2">
+                    {placeholder || "Cliquez ou glissez pour ajouter"}
+                  </p>
+                  <p className="text-xs">PNG, JPEG ou HEIC (max 5 Mo)</p>
+                </>
+              )}
             </button>
           </FormControl>
 
