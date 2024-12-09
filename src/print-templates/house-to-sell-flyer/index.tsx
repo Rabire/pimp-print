@@ -4,7 +4,7 @@ import FIELDS from "./fields";
 import Page from "./page";
 import schema from "./schema";
 
-const template = {
+export const template = {
   name: "house-to-sell-flyer",
   title: "Flyer de vente de maison",
 
@@ -14,7 +14,5 @@ const template = {
   schema,
   defaultValues: generateDefaultValues(FIELDS),
 };
-
-export default template;
 
 export type Type = z.infer<typeof schema>;
