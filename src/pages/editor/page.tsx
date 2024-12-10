@@ -23,10 +23,10 @@ function EditorPage() {
   return (
     <main className="grid grid-cols-3 h-full">
       <Form {...form}>
-        <div className="col-span-2 z-10">
+        <div className="col-span-2 z-10 flex flex-col h-full">
           <Header />
 
-          <PDFViewer className="h-full w-full" showToolbar={false}>
+          <PDFViewer className="flex-grow" showToolbar={false}>
             <Document title={title}>
               <Page values={values as Type} settings={settings} />
             </Document>
