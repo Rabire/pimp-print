@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Image as PdfImage } from "@react-pdf/renderer";
 import * as lucideIcons from "lucide-react"; // Importer toutes les icônes de lucide
 import { LucideProps } from "lucide-react";
@@ -7,58 +8,70 @@ import { tw } from "../styles";
 
 type Props = LucideProps & {
   size: number;
-  icon: string;
+  iconName: string;
   className?: string;
 };
 
-const PdfIcon = ({ size, icon, className, ...props }: Props) => {
-  const IconComponent = lucideIcons[
-    icon as keyof typeof lucideIcons
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ] as React.ComponentType<any>;
+const PdfIcon = ({ size, iconName, className, ...props }: Props) => {
+  const [IconComponent, setIconComponent] =
+    useState<React.ComponentType<any> | null>(null);
 
-  const svgString = ReactDOMServer.renderToString(<IconComponent {...props} />);
+  useEffect(() => {
+    try {
+      const newIcon = lucideIcons[
+        iconName as keyof typeof lucideIcons
+      ] as React.ComponentType<any>;
+
+      setIconComponent(newIcon);
+    } catch {
+      // icon does not exist (user is maybe typing)
+      setIconComponent(null);
+    }
+  }, [iconName]);
+
+  const svgString = ReactDOMServer.renderToString(
+    IconComponent ? <IconComponent {...props} /> : null
+  );
 
   const [pngUrl, setPngUrl] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!IconComponent) {
-      console.error("Unknown icon name: ", icon);
-      return;
-    }
+  const convertSvgToPng = async () => {
+    try {
+      const encodedData = window.btoa(svgString);
+      const base64Svg = `data:image/svg+xml;base64,${encodedData}`;
+      const image = new Image();
 
-    const convertSvgToPng = async () => {
-      try {
-        const encodedData = window.btoa(svgString);
-        const base64Svg = `data:image/svg+xml;base64,${encodedData}`;
-        const image = new Image();
+      image.src = base64Svg;
 
-        image.src = base64Svg;
+      await new Promise<void>((resolve, reject) => {
+        image.onload = () => resolve();
+        image.onerror = reject;
+      });
 
-        await new Promise<void>((resolve, reject) => {
-          image.onload = () => resolve();
-          image.onerror = reject;
-        });
+      const width = size * 4; // multiply to get a better resolution
+      const height = size * 4;
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      const context = canvas.getContext("2d");
 
-        const width = size * 4; // multiply to get a better resolution
-        const height = size * 4;
-        const canvas = document.createElement("canvas");
-        canvas.width = width;
-        canvas.height = height;
-        const context = canvas.getContext("2d");
+      if (context) {
+        context.drawImage(image, 0, 0, width, height);
+        const dataUrl = canvas.toDataURL("image/png");
 
-        if (context) {
-          context.drawImage(image, 0, 0, width, height);
-          const dataUrl = canvas.toDataURL("image/png");
-          setPngUrl(dataUrl);
-        }
-      } catch (error) {
-        console.error("Error converting SVG to PNG:", error);
+        setPngUrl(dataUrl);
+        return dataUrl;
       }
-    };
+    } catch (error) {
+      console.error("Error converting SVG to PNG:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (!IconComponent) return;
 
     convertSvgToPng();
-  }, [svgString, size, icon, IconComponent]);
+  }, [svgString, size, iconName, IconComponent]);
 
   if (!pngUrl) return null;
 

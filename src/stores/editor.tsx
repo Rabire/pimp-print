@@ -18,7 +18,6 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
   const [settings, setSettings] = useState(defaultValues.settings);
 
   const updateSettings = (newSettings: Partial<EditorSettings>) => {
-    console.log(newSettings);
     setSettings((prevSettings) => ({ ...prevSettings, ...newSettings }));
   };
 

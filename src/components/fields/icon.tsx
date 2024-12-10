@@ -19,7 +19,7 @@ const IconField = ({ name, label, placeholder }: FieldProps) => {
   const form = useFormContext();
   const iconName = form.watch(name);
 
-  const [inputName, setInputName] = useState("");
+  const [inputName, setInputName] = useState(iconName || "");
 
   const Icon = iconName
     ? (lucideIcons[
@@ -30,7 +30,6 @@ const IconField = ({ name, label, placeholder }: FieldProps) => {
 
   useEffect(() => {
     form.setValue(name, inputName === "" ? null : pascalCase(inputName));
-
     form.clearErrors(name);
 
     if (inputName.length > 5 && !Icon) {

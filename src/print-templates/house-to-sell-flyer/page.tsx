@@ -98,7 +98,7 @@ const Page = ({ values, settings }: Props) => {
             </Text>
             <PdfIcon
               size={14}
-              icon="CornerDownRight"
+              iconName="CornerDownRight"
               strokeWidth={1.2}
               className="mt-0.5 -rotate-12"
               style={{ color: COLOR.secondary }}
@@ -123,7 +123,7 @@ type LiProps = {
 const Li = ({ icon, title, value }: LiProps) => {
   return (
     <View className="flex-row gap-3 items-center text-sm">
-      {icon && <PdfIcon size={18} icon={icon} strokeWidth={1.2} />}
+      {icon && <PdfIcon size={18} iconName={icon} strokeWidth={1.2} />}
 
       <View>
         <Text className="mb-1 opacity-60">{title}</Text>

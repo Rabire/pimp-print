@@ -1,9 +1,9 @@
 import { Field } from "@/utils/field";
 import IconField from "./fields/icon";
 import ImageField from "./fields/image";
+import QrCodeField from "./fields/qrcode";
 import TextField from "./fields/text";
 import TextareaField from "./fields/textarea";
-import QrCodeField from "./fields/qrcode";
 
 type Props = {
   fields: Field[];

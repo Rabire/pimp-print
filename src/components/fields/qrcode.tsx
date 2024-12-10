@@ -1,3 +1,7 @@
+import { FieldProps } from "@/utils/field";
+import QRCode from "qrcode";
+import { useEffect, useState } from "react";
+import { useFormContext } from "react-hook-form";
 import {
   FormControl,
   FormDescription,
@@ -5,11 +9,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { FieldProps } from "@/utils/field";
-import QRCode from "qrcode";
-import { useEffect, useState } from "react";
-import { useFormContext } from "react-hook-form";
+} from "../ui/form";
 import { Input } from "../ui/input";
 
 const QrCodeField = ({ name, label, placeholder, description }: FieldProps) => {
@@ -36,18 +36,15 @@ const QrCodeField = ({ name, label, placeholder, description }: FieldProps) => {
     try {
       const qrCodeSrc = await QRCode.toDataURL(url.toString());
       form.setValue(name, qrCodeUrl === "" ? null : qrCodeSrc);
+      form.clearErrors(name);
     } catch (error) {
       console.error("Erreur lors de la génération du QR code :", error);
     }
   };
 
   useEffect(() => {
-    form.clearErrors(name);
-
-    if (hasUrl) {
-      generateQRCode();
-    }
-  }, [inputUrl]);
+    if (hasUrl) generateQRCode();
+  }, []);
 
   return (
     <FormField
