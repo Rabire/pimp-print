@@ -1,4 +1,9 @@
-import type { ImageProps, TextProps, ViewProps } from "@react-pdf/renderer";
+import type {
+  ImageProps,
+  NodeProps,
+  TextProps,
+  ViewProps,
+} from "@react-pdf/renderer";
 import {
   Image as PDFImage,
   Text as PDFText,
@@ -7,10 +12,15 @@ import {
 import { PropsWithChildren } from "react";
 import { tw } from "../styles";
 
+const styles = (className: string | undefined, style: NodeProps["style"]) => ({
+  ...(className ? tw(className) : {}),
+  ...style,
+});
+
 type PropsView = PropsWithChildren<ViewProps> & { className?: string };
 
 export const View = ({ className, children, ...props }: PropsView) => (
-  <PDFView style={{ ...tw(className), ...props.style }} {...props}>
+  <PDFView style={styles(className, props.style)} {...props}>
     {children}
   </PDFView>
 );
@@ -18,7 +28,7 @@ export const View = ({ className, children, ...props }: PropsView) => (
 type PropsText = PropsWithChildren<TextProps> & { className?: string };
 
 export const Text = ({ className, children, ...props }: PropsText) => (
-  <PDFText style={{ ...tw(className), ...props.style }} {...props}>
+  <PDFText style={styles(className, props.style)} {...props}>
     {children}
   </PDFText>
 );

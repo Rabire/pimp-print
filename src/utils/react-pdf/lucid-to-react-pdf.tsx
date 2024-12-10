@@ -67,7 +67,7 @@ const PdfIcon = ({ size, icon, className, ...props }: Props) => {
       src={pngUrl}
       style={{
         ...{ minHeight: size, minWidth: size, maxHeight: size, maxWidth: size },
-        ...tw(className),
+        ...(className ? tw(className) : {}),
       }}
     />
   );
