@@ -23,6 +23,9 @@ const FormFieldsRenderer = ({ fields }: Props) => {
       case "image":
         return <ImageField key={field.name} {...field} />;
 
+      case "qrcode":
+        return null; // TODO: implement qrcode field
+
       default:
         console.error(`Field type ${field.type} not supported`);
         return null;

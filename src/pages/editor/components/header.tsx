@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { FormLabel } from "@/components/ui/form";
+import { FormControl, FormItem, FormLabel } from "@/components/ui/form";
 import {
   Popover,
   PopoverContent,
@@ -28,29 +28,35 @@ const Header = () => {
           </Button>
         </PopoverTrigger>
 
-        <PopoverContent className="space-y-2">
-          <div className="items-center gap-2 flex">
-            <Switch
-              checked={settings.showCutLines}
-              onCheckedChange={(value) =>
-                updateSettings({ showCutLines: value })
-              }
-            />
-            <FormLabel className="!mt-0">
+        <PopoverContent className="space-y-4">
+          <FormItem className="items-center gap-2 flex">
+            <FormControl>
+              <Switch
+                checked={settings.showCutLines}
+                onCheckedChange={(value) =>
+                  updateSettings({ showCutLines: value })
+                }
+              />
+            </FormControl>
+
+            <FormLabel className="!mt-0 leading-5">
               Afficher la ligne de découpe (fond perdu)
             </FormLabel>
-          </div>
+          </FormItem>
 
-          {/* TODO: use SwitchField x2 */}
-          <div className="items-center gap-2 flex">
-            <Switch
-              checked={settings.showSafeArea}
-              onCheckedChange={(value) =>
-                updateSettings({ showSafeArea: value })
-              }
-            />
-            <FormLabel className="!mt-0">Afficher la zone tranquille</FormLabel>
-          </div>
+          <FormItem className="items-center gap-2 flex">
+            <FormControl>
+              <Switch
+                checked={settings.showSafeArea}
+                onCheckedChange={(value) =>
+                  updateSettings({ showSafeArea: value })
+                }
+              />
+            </FormControl>
+            <FormLabel className="!mt-0 leading-5">
+              Afficher la zone tranquille
+            </FormLabel>
+          </FormItem>
         </PopoverContent>
       </Popover>
     </header>

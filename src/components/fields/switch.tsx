@@ -21,7 +21,7 @@ const SwitchField = ({ name, label }: FieldProps) => {
             <Switch checked={field.value} onCheckedChange={field.onChange} />
           </FormControl>
 
-          <FormLabel className="!mt-0">{label}</FormLabel>
+          <FormLabel className="!mt-0 leading-5">{label}</FormLabel>
         </FormItem>
       )}
     />

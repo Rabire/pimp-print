@@ -3,6 +3,8 @@ import EditorPage from "./pages/editor/page";
 import HomePage from "./pages/page";
 import { EditorProvider } from "./stores/editor";
 
+// TODO: use suspense & lazy
+
 function App() {
   return (
     <Routes>
