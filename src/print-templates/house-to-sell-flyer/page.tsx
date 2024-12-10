@@ -1,3 +1,4 @@
+import { EditorSettings } from "@/stores/editor";
 import PdfIcon from "@/utils/react-pdf/lucid-to-react-pdf";
 import { PrintPage } from "@/utils/react-pdf/print-page";
 import { Image, Text, View } from "@/utils/react-pdf/renderer";
@@ -6,18 +7,14 @@ import { Type } from ".";
 
 type Props = {
   values: Type;
+  settings: EditorSettings;
 };
 
-const Page = ({ values }: Props) => {
+const Page = ({ values, settings }: Props) => {
   const { coverPicture } = values;
 
   return (
-    <PrintPage
-      size="A5"
-      className="justify-between"
-      showCutLines={true}
-      showSafeArea={false}
-    >
+    <PrintPage size="A5" className="justify-between" settings={settings}>
       <View className="bg-primary h-1/3 relative">
         {coverPicture && <Image src={coverPicture} />}
 
@@ -124,8 +121,6 @@ type LiProps = {
 };
 
 const Li = ({ icon, title, value }: LiProps) => {
-  console.log({ icon });
-
   return (
     <View className="flex-row gap-3 items-center text-sm">
       {icon && <PdfIcon size={18} icon={icon} strokeWidth={1.2} />}

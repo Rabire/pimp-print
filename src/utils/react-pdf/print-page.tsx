@@ -1,3 +1,4 @@
+import { EditorSettings } from "@/stores/editor";
 import { Page, View } from "@react-pdf/renderer";
 import { PropsWithChildren } from "react";
 import { tw } from "../styles";
@@ -18,16 +19,14 @@ export const DEFAULT_PADDING = `${mmToPt(DEFAULT_BLEED + DEFAULT_SAFE)}pt`;
 type Props = PropsWithChildren & {
   size: "A4" | "A5";
   orientation?: "portrait" | "landscape";
-  showCutLines?: boolean;
-  showSafeArea?: boolean;
+  settings: EditorSettings;
   className?: string;
 };
 
 export const PrintPage = ({
   size,
   orientation = "portrait",
-  showCutLines,
-  showSafeArea,
+  settings,
   children,
   className,
 }: Props) => {
@@ -40,6 +39,8 @@ export const PrintPage = ({
     orientation === "portrait"
       ? [pageWidth, pageHeight]
       : [pageHeight, pageWidth];
+
+  const { showCutLines, showSafeArea } = settings;
 
   return (
     <Page size={sizes} style={tw(className)}>

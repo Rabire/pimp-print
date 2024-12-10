@@ -24,7 +24,7 @@ const FormFieldsRenderer = ({ fields }: Props) => {
         return <ImageField key={field.name} {...field} />;
 
       default:
-        console.log(`Field type ${field.type} not supported`);
+        console.error(`Field type ${field.type} not supported`);
         return null;
     }
   });
