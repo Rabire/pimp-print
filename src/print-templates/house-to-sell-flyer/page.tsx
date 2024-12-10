@@ -30,7 +30,7 @@ const Page = ({ values, settings }: Props) => {
         <View className="w-3/4 gap-2 mr-4">
           <Text className="font-semibold">{values.paragraphTitle}</Text>
 
-          <Text className="text-sm opacity-60 text-justify leading-6">
+          <Text className="text-sm opacity-80 text-justify leading-6">
             {values.paragraphContent}
           </Text>
         </View>
@@ -126,7 +126,7 @@ const Li = ({ icon, title, value }: LiProps) => {
       {icon && <PdfIcon size={18} iconName={icon} strokeWidth={1.2} />}
 
       <View>
-        <Text className="mb-1 opacity-60">{title}</Text>
+        <Text className="mb-1 opacity-70">{title}</Text>
         <Text className="font-semibold">{value}</Text>
       </View>
     </View>

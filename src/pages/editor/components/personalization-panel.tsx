@@ -3,12 +3,19 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Field } from "@/utils/field";
 import { SaveIcon } from "lucide-react";
+import { useFormContext } from "react-hook-form";
 
 type Props = {
   fields: Field[];
 };
 
 const PersonalizationPanel = ({ fields }: Props) => {
+  const form = useFormContext();
+
+  const onSubmit = () => {
+    //
+  };
+
   return (
     <ScrollArea>
       <aside className="p-6 pb-20 space-y-6 relative border-l">
@@ -23,7 +30,7 @@ const PersonalizationPanel = ({ fields }: Props) => {
           </p>
         </div>
 
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
           <FormFieldsRenderer fields={fields} />
 
           <div className="shadow-sm fixed bottom-0 w-full right-0 border-t py-4 px-6 -ml-6 bg-background gap-2 justify-end flex">
