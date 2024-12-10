@@ -105,7 +105,7 @@ const Page = ({ values, settings }: Props) => {
             />
           </View>
 
-          <Image src={values.qrCodeUrl} className="bg-gray-300 h-16 w-16" />
+          <Image src={values.qrCodeUrl} className="h-16 w-16" />
         </View>
       </View>
     </PrintPage>

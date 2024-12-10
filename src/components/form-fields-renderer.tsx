@@ -3,6 +3,7 @@ import IconField from "./fields/icon";
 import ImageField from "./fields/image";
 import TextField from "./fields/text";
 import TextareaField from "./fields/textarea";
+import QrCodeField from "./fields/qrcode";
 
 type Props = {
   fields: Field[];
@@ -24,7 +25,7 @@ const FormFieldsRenderer = ({ fields }: Props) => {
         return <ImageField key={field.name} {...field} />;
 
       case "qrcode":
-        return null; // TODO: implement qrcode field
+        return <QrCodeField key={field.name} {...field} />;
 
       default:
         console.error(`Field type ${field.type} not supported`);

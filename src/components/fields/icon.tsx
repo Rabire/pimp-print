@@ -17,29 +17,29 @@ const pascalCase = (str: string) => startCase(camelCase(str)).replace(/ /g, "");
 
 const IconField = ({ name, label, placeholder }: FieldProps) => {
   const form = useFormContext();
-  const formValue = form.watch(name);
+  const iconName = form.watch(name);
 
-  const [inputValue, setInputValue] = useState("");
+  const [inputName, setInputName] = useState("");
 
-  const Icon = formValue
+  const Icon = iconName
     ? (lucideIcons[
-        formValue as keyof typeof lucideIcons
+        iconName as keyof typeof lucideIcons
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ] as React.ComponentType<any>)
     : null;
 
   useEffect(() => {
-    form.setValue(name, inputValue === "" ? null : pascalCase(inputValue));
+    form.setValue(name, inputName === "" ? null : pascalCase(inputName));
 
     form.clearErrors(name);
 
-    if (inputValue.length > 5 && !Icon) {
+    if (inputName.length > 5 && !Icon) {
       form.setError(name, {
         type: "manual",
         message: "Icône inconnue",
       });
     }
-  }, [inputValue, Icon]);
+  }, [inputName, Icon]);
 
   return (
     <FormField
@@ -53,9 +53,10 @@ const IconField = ({ name, label, placeholder }: FieldProps) => {
               <Input
                 placeholder={placeholder || "Nom de l'icône non renseigné"}
                 {...field}
-                onChange={({ target: { value } }) => setInputValue(value)}
-                value={inputValue || formValue}
+                onChange={({ target: { value } }) => setInputName(value)}
+                value={inputName || iconName}
               />
+
               {Icon && <Icon strokeWidth={1.4} />}
             </div>
           </FormControl>

@@ -194,8 +194,7 @@ const FIELDS: Field[] = [
     name: "qrCodeUrl",
     label: "QRCode vitrine",
     type: "qrcode",
-    defaultValue:
-      "https://media.discordapp.net/attachments/588440950465101835/1315466009922240642/Untitled_1.png?ex=675782b0&is=67563130&hm=99a008d73fdd8b32cd270bdb6007f98cccae2977ce51adf4979d672e181578df",
+    defaultValue: "https://ecotransac.fr",
   },
 ];
 
