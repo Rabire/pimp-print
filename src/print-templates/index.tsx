@@ -1,17 +1,8 @@
 import { Template } from "@/utils/template";
-import { template } from "./house-to-sell-flyer";
+import { template as houseToSellFlyerTemplate } from "./house-to-sell-flyer";
+import { template as yourAgentTemplate } from "./your-agent";
 
-const TEMPLATES: Template[] = [
-  template,
-  template,
-  template,
-  template,
-  template,
-  template,
-].map((template, index) => ({
-  ...template,
-  name: `${template.name}-${index}`,
-}));
+const TEMPLATES: Template[] = [houseToSellFlyerTemplate, yourAgentTemplate];
 
 export default TEMPLATES;
 

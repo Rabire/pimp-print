@@ -1,8 +1,8 @@
 import { cn } from "@/utils/styles";
-import { PrintableDocument, Template } from "@/utils/template";
+import { Template } from "@/utils/template";
+import { useSelectorContext } from "../context";
 
 type Props = {
-  selectedDocument: PrintableDocument;
   template: Template;
   onHover: (template: Template) => void;
   onClick: (template: Template) => void;
@@ -10,13 +10,14 @@ type Props = {
 };
 
 const TemplateProposal = ({
-  selectedDocument,
   template,
   onHover,
   onClick,
   onHoverExit,
 }: Props) => {
-  const { sizes } = selectedDocument;
+  const { selectedDocType } = useSelectorContext();
+
+  const { sizes } = selectedDocType;
 
   return (
     <button

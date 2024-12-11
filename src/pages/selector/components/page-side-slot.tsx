@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { PageSide, Template } from "@/utils/template";
 import { Trash2Icon } from "lucide-react";
+import { useSelectorContext } from "../context";
 
 type Props = {
   side: PageSide;
@@ -9,9 +10,16 @@ type Props = {
 };
 
 const PageSideSlot = ({ side, content, handleDelete }: Props): JSX.Element => {
+  const { selectedDocType } = useSelectorContext();
+
+  const { sizes } = selectedDocType;
+
   return (
     <div>
-      <div className="relative border border-muted-foreground border-dashed rounded-md aspect-[210/297] w-80 bg-card p-4 flex items-center justify-center">
+      <div
+        style={{ aspectRatio: `${sizes.width}/${sizes.height}` }}
+        className="relative border border-muted-foreground border-dashed rounded-md w-80 bg-card p-4 flex items-center justify-center"
+      >
         {content?.name}
 
         {handleDelete && (

@@ -2,25 +2,22 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import TEMPLATES from "@/print-templates";
 import { DOCUMENTS, PrintableDocument, Template } from "@/utils/template";
-import { useState } from "react";
 import { useSelectorContext } from "../context";
 import TemplateProposal from "./template-proposal";
 
 const PickTemplatePanel = () => {
-  const { sides, setSidesTmp, setSides } = useSelectorContext();
-
-  const [selectedPrintableDocument, setSelectedPrintableDocument] =
-    useState<PrintableDocument>(DOCUMENTS[0]);
+  const { sides, setSidesTmp, setSides, setSelectedDocType, selectedDocType } =
+    useSelectorContext();
 
   const [recto, verso] = sides;
 
   const handleTypeSelect = (type: PrintableDocument) => {
-    setSelectedPrintableDocument(type);
+    setSelectedDocType(type);
     setSides([null, null]);
     setSidesTmp([null, null]);
   };
 
-  const onHover = (template: Template) => {
+  const onTemplateHover = (template: Template) => {
     if (recto && verso) return;
 
     const availableSlotIndex: 0 | 1 = !recto ? 0 : !verso ? 1 : 0;
@@ -31,11 +28,11 @@ const PickTemplatePanel = () => {
     ]);
   };
 
-  const onHoverExit = () => {
+  const onTemplateHoverExit = () => {
     setSidesTmp(sides);
   };
 
-  const onClick = (template: Template) => {
+  const onTemplateClick = (template: Template) => {
     const availableSlotIndex: 0 | 1 | null = !recto ? 0 : !verso ? 1 : null;
 
     if (availableSlotIndex === null) {
@@ -57,9 +54,7 @@ const PickTemplatePanel = () => {
           {DOCUMENTS.map((type) => (
             <Button
               key={type.name}
-              variant={
-                selectedPrintableDocument === type ? "default" : "outline"
-              }
+              variant={selectedDocType === type ? "default" : "outline"}
               onClick={() => handleTypeSelect(type)}
             >
               {type.name}
@@ -71,11 +66,10 @@ const PickTemplatePanel = () => {
           {TEMPLATES.map((template) => (
             <TemplateProposal
               key={template.name}
-              selectedDocument={selectedPrintableDocument}
               template={template}
-              onHover={onHover}
-              onClick={onClick}
-              onHoverExit={onHoverExit}
+              onHover={onTemplateHover}
+              onClick={onTemplateClick}
+              onHoverExit={onTemplateHoverExit}
             />
           ))}
         </div>
