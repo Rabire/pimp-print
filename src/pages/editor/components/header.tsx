@@ -6,7 +6,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Switch } from "@/components/ui/switch";
-import { useEditorContext } from "@/stores/editor";
+import { useEditorContext } from "@/pages/editor/context";
 import { ArrowLeft, SettingsIcon } from "lucide-react";
 
 const Header = () => {
@@ -18,7 +18,8 @@ const Header = () => {
         href="/"
         className="flex gap-2 items-center text-muted-foreground hover:text-primary hover:underline"
       >
-        <ArrowLeft size={16} /> Retour aux blabla
+        <ArrowLeft size={16} />
+        Retour au menu principal
       </a>
 
       <Popover>
@@ -40,7 +41,7 @@ const Header = () => {
             </FormControl>
 
             <FormLabel className="!mt-0 leading-5">
-              Afficher la ligne de découpe (fond perdu)
+              Afficher les lignes de découpes (fond perdu)
             </FormLabel>
           </FormItem>
 

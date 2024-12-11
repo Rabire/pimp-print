@@ -39,7 +39,7 @@ const ImageField = ({ name, label, placeholder, description }: FieldProps) => {
           <FormLabel>{label}</FormLabel>
           <FormControl>
             <button
-              className="relative group overflow-hidden w-full cursor-pointer text-muted-foreground flex flex-col items-center justify-center rounded-md border border-input border-dashed h-32"
+              className=" bg-card relative group overflow-hidden w-full cursor-pointer text-muted-foreground flex flex-col items-center justify-center rounded-md border border-input border-dashed h-32"
               type="button"
               {...getRootProps()}
             >

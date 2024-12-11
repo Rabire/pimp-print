@@ -1,4 +1,4 @@
-import { EditorSettings } from "@/stores/editor";
+import { EditorSettings } from "@/pages/editor/context";
 import { Page, View } from "@react-pdf/renderer";
 import { PropsWithChildren } from "react";
 import { tw } from "../styles";

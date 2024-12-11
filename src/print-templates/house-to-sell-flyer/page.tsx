@@ -1,4 +1,4 @@
-import { EditorSettings } from "@/stores/editor";
+import { EditorSettings } from "@/pages/editor/context";
 import PdfIcon from "@/utils/react-pdf/lucid-to-react-pdf";
 import { PrintPage } from "@/utils/react-pdf/print-page";
 import { Image, Text, View } from "@/utils/react-pdf/renderer";

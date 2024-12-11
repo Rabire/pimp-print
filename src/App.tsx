@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router";
+import { EditorProvider } from "./pages/editor/context";
 import EditorPage from "./pages/editor/page";
 import HomePage from "./pages/page";
-import { EditorProvider } from "./stores/editor";
 
 // TODO: use suspense & lazy
 

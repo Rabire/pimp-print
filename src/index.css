@@ -51,6 +51,9 @@
     font-family: Inter;
   }
 
+  main {
+    @apply h-full;
+  }
   #root {
     @apply h-screen;
   }
