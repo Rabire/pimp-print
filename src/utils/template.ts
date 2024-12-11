@@ -1,5 +1,4 @@
 import { EditorSettings } from "@/pages/editor/context";
-import { template } from "@/print-templates/house-to-sell-flyer";
 import { z } from "zod";
 import { Field } from "./field";
 
@@ -17,6 +16,10 @@ type Sizes = {
   bleed: number;
   safeZone: number;
 };
+
+export type Sides = [Template | null, Template | null];
+
+export type PageSide = "recto" | "verso";
 
 export type PrintableDocument = {
   name: string;
@@ -59,15 +62,6 @@ export const DOCUMENTS: PrintableDocument[] = [
     name: "Panneau",
     sizes: { width: 594, height: 420, bleed: 3, safeZone: 4 },
   },
-];
-
-export const TEMPLATES = [
-  template,
-  template,
-  template,
-  template,
-  template,
-  template,
 ];
 
 export const getDocument = (type: DocumentCategory) => {

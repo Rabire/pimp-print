@@ -1,7 +1,8 @@
 import { cn } from "@/utils/styles";
-import { getDocument, Template } from "@/utils/template";
+import { PrintableDocument, Template } from "@/utils/template";
 
 type Props = {
+  selectedDocument: PrintableDocument;
   template: Template;
   onHover: (template: Template) => void;
   onClick: (template: Template) => void;
@@ -9,14 +10,13 @@ type Props = {
 };
 
 const TemplateProposal = ({
+  selectedDocument,
   template,
   onHover,
   onClick,
   onHoverExit,
 }: Props) => {
-  const { documentCategory } = template;
-
-  const { sizes } = getDocument(documentCategory);
+  const { sizes } = selectedDocument;
 
   return (
     <button

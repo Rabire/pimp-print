@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Template } from "@/utils/template";
+import { PageSide, Template } from "@/utils/template";
 import { Trash2Icon } from "lucide-react";
 
 type Props = {
-  side: "recto" | "verso";
+  side: PageSide;
   content: Template | null;
-  handleDelete: () => void;
+  handleDelete?: () => void;
 };
 
 const PageSideSlot = ({ side, content, handleDelete }: Props): JSX.Element => {
@@ -14,7 +14,7 @@ const PageSideSlot = ({ side, content, handleDelete }: Props): JSX.Element => {
       <div className="relative border border-muted-foreground border-dashed rounded-md aspect-[210/297] w-80 bg-card p-4 flex items-center justify-center">
         {content?.name}
 
-        {content && (
+        {handleDelete && (
           <Button
             onClick={() => handleDelete()}
             variant="destructive"
