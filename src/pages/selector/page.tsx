@@ -14,8 +14,6 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   const onEditorClick = () => {
-    if (!canGoToEditor) return;
-
     navigate("/editor");
   };
 

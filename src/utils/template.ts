@@ -43,14 +43,14 @@ export type Template = {
 
 export const DOCUMENTS: PrintableDocument[] = [
   {
-    type: DocumentCategory.BusinessCard,
-    name: "Carte de visite",
-    sizes: { width: 85, height: 55, bleed: 3, safeZone: 4 },
-  },
-  {
     type: DocumentCategory.Flyer,
     name: "Flyer",
     sizes: { width: 148, height: 210, bleed: 3, safeZone: 4 },
+  },
+  {
+    type: DocumentCategory.BusinessCard,
+    name: "Carte de visite",
+    sizes: { width: 85, height: 55, bleed: 3, safeZone: 4 },
   },
   {
     type: DocumentCategory.Poster,
