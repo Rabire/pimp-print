@@ -46,9 +46,13 @@ const PickTemplatePanel = () => {
     ]);
   };
 
+  const filteredTemplates = TEMPLATES.filter(
+    (template) => template.documentCategory === selectedDocType.type
+  );
+
   return (
-    <ScrollArea>
-      <aside className="p-6 pb-8 space-y-6 relative border-l">
+    <ScrollArea className="border-l">
+      <aside className="p-6 pb-8 space-y-6 relative">
         <div className="gap-2 flex flex-wrap justify-center border-b pb-4">
           {/* Document types */}
           {DOCUMENTS.map((type) => (
@@ -63,7 +67,7 @@ const PickTemplatePanel = () => {
         </div>
 
         <div className="flex flex-col gap-4 items-center">
-          {TEMPLATES.map((template) => (
+          {filteredTemplates.map((template) => (
             <TemplateProposal
               key={template.name}
               template={template}
