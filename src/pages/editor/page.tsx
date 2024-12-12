@@ -1,6 +1,6 @@
 import { Form } from "@/components/ui/form";
 import { useEditorContext } from "@/pages/editor/context";
-import { template, Type } from "@/print-templates/house-to-sell-flyer";
+import { template, Type } from "@/print-templates/property-to-sell-flyer";
 import Document from "@/utils/react-pdf/document";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PDFViewer } from "@react-pdf/renderer";

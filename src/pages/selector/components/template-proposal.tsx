@@ -29,7 +29,7 @@ const TemplateProposal = ({
         "border border-muted-foreground border-dashed rounded-md w-full bg-card p-4 flex items-center justify-center bg-green-300"
       )}
     >
-      {template.name}
+      {template.title}
     </button>
   );
 };

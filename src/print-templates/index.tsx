@@ -1,25 +1,25 @@
 import { Template } from "@/utils/template";
-import { template as houseToSellFlyerTemplate } from "./house-to-sell-flyer";
-import { template as yourAgentTemplate } from "./your-agent";
+import { template as energyWorkProjectTemplate } from "./energy-work-project-flyer";
+import { template as estimatePropertyTemplate } from "./estimate-property-flyer";
+import { template as propertyToSellTemplate } from "./property-to-sell-flyer";
+import { template as rentForbiddenTemplate } from "./rent-forbidden-flyer";
+import { template as yourAgentTemplate } from "./your-agent-flyer";
 
-const TEMPLATES: Template[] = [houseToSellFlyerTemplate, yourAgentTemplate];
+const TEMPLATES: Template[] = [
+  // Flyers
+  propertyToSellTemplate,
+  yourAgentTemplate,
+  rentForbiddenTemplate,
+  estimatePropertyTemplate,
+  energyWorkProjectTemplate,
+
+  // Business cards
+];
 
 export default TEMPLATES;
 
 // const DOCUMENTS_TYPES = [
-//   {
-//     name: "Flyers",
-//     type: DocumentType.A5_FLYER,
-//     width: 148,
-//     height: 210,
-//     documents: [
-//       { name: "Votre conseiller" },
-//       { name: "Bien à vendre" },
-//       { name: "Journée porte ouverte" },
-//       { name: "Interdiction de location" },
-//       { name: "Estimation gratuite" },
-//       { name: "Projet de travaux" },
-//     ],
+
 //   },
 //   {
 //     name: "Cartes de visites",

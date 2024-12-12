@@ -8,8 +8,8 @@ import schema from "./schema";
 export type Type = z.infer<typeof schema>;
 
 export const template: Template = {
-  name: "your-agent",
-  title: "Flyer de présentation de votre agent",
+  name: "energy-work-project-flyer",
+  title: "Un projet de rénovation énergétique",
   previewUrl: "TODO: Add preview URL",
 
   documentCategory: DocumentCategory.Flyer,
